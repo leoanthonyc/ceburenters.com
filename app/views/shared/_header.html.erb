@@ -1,7 +1,12 @@
-<% if user_signed_in? %>
-  <%= link_to current_user.email, edit_user_registration_url(user: current_user) %>
-  <%= button_to "Sign out", destroy_user_session_url, method: :delete  %>
-<% else %>
-  <%= link_to "Sign in", new_user_session_url  %>
-  <%= link_to "Sign up", new_user_registration_url  %>
-<% end %>
+<div class="header">
+  <%= link_to "Home", root_url %>
+  <div class="links">
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, edit_user_registration_url(user: current_user), class: "account" %>
+      <%= button_to "Sign out", destroy_user_session_url, method: :delete  %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_url, class: "sign-in"  %>
+      <%= link_to "Sign up", new_user_registration_url, class: "sign-up"  %>
+    <% end %>
+  </div>
+</div>
